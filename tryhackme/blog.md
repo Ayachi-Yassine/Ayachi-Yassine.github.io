@@ -1,4 +1,7 @@
-
+---
+layout: default
+title: TryHackMe - Basic Pentesting
+---
 # TryHackMe – Blog Room Walkthrough 🧠💻
 
 
