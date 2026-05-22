@@ -1,141 +1,276 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayachi Yassine – Cybersecurity Pentesting Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            max-width: 800px;
-            padding: 40px;
-            text-align: center;
-        }
-        h1 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-        }
-        .nav {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        .nav a {
-            display: inline-block;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .nav a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        .intro {
-            text-align: left;
-            margin: 30px 0;
-            padding: 20px;
-            background: #f5f5f5;
-            border-left: 4px solid #667eea;
-            border-radius: 5px;
-        }
-        .intro h2 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .skill-tag {
-            background: #e8eaf6;
-            color: #667eea;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-        .footer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #666;
-            font-size: 0.9em;
-        }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            .nav {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🛡️ Ayachi Yassine</h1>
-        <p class="subtitle">Cybersecurity • Penetration Testing • Vulnerability Research</p>
+---
+layout: default
+title: Home
+permalink: /
+---
 
-        <div class="intro">
-            <h2>Welcome to My Pentesting Portfolio</h2>
-            <p>Hi! I'm a passionate cybersecurity enthusiast focused on penetration testing, vulnerability research, and ethical hacking. This portfolio showcases my projects, certifications, and security research.</p>
-        </div>
+<style>
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+        align-items: center;
+        padding: var(--spacing-2xl) 0;
+        min-height: 80vh;
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .hero-content h1 {
+        font-size: var(--font-size-4xl);
+        margin-bottom: var(--spacing-md);
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .hero-tagline {
+        font-size: var(--font-size-xl);
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .cta-buttons {
+        display: flex;
+        gap: var(--spacing-md);
+        margin: var(--spacing-xl) 0;
+        flex-wrap: wrap;
+    }
+    
+    .cta-buttons .btn {
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: var(--font-size-base);
+    }
+    
+    .quick-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-lg);
+        margin: var(--spacing-2xl) 0;
+    }
+    
+    .stat-card {
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-3xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--accent-primary);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .stat-label {
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+    }
+    
+    .about-section {
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-lg);
+        margin: var(--spacing-2xl) 0;
+    }
+    
+    .about-section h2 {
+        margin-top: 0;
+        border-bottom: 2px solid var(--accent-primary);
+    }
+    
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: var(--spacing-md);
+        margin: var(--spacing-lg) 0;
+    }
+    
+    .skill-item {
+        background-color: var(--bg-tertiary);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-color);
+        text-align: center;
+        transition: all var(--transition-fast);
+    }
+    
+    .skill-item:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .portfolio-section {
+        margin: var(--spacing-2xl) 0;
+    }
+    
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        margin: var(--spacing-lg) 0;
+    }
+    
+    .portfolio-item {
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-lg);
+        transition: all var(--transition-base);
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .portfolio-item:hover {
+        border-color: var(--accent-primary);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-8px);
+    }
+    
+    .portfolio-icon {
+        font-size: 3em;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .portfolio-title {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--spacing-sm);
+        color: var(--accent-secondary);
+    }
+    
+    .portfolio-description {
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+        flex-grow: 1;
+    }
+    
+    .cta-section {
+        background: linear-gradient(135deg, rgba(88, 166, 255, 0.1) 0%, rgba(31, 111, 235, 0.05) 100%);
+        border: 1px solid rgba(88, 166, 255, 0.2);
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-lg);
+        text-align: center;
+        margin: var(--spacing-2xl) 0;
+    }
+    
+    .cta-section h2 {
+        border: none;
+        margin-top: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .hero {
+            min-height: auto;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .hero-content h1 {
+            font-size: var(--font-size-2xl);
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+        }
+        
+        .cta-buttons .btn {
+            width: 100%;
+        }
+        
+        .portfolio-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 
-        <div class="skills">
-            <span class="skill-tag">🔍 Web App Testing</span>
-            <span class="skill-tag">🌐 Network PT</span>
-            <span class="skill-tag">🐛 Vuln Research</span>
-            <span class="skill-tag">🔐 Ethical Hacking</span>
-            <span class="skill-tag">📊 Risk Assessment</span>
-            <span class="skill-tag">🛠️ Linux/Bash</span>
-        </div>
-
-        <h2 style="color: #667eea; margin-top: 30px; margin-bottom: 20px;">📂 My Portfolio</h2>
-        <div class="nav">
-            <a href="/projects/">🔍 Projects</a>
-            <a href="/certifications/">📜 Certifications</a>
-            <a href="/research/">🐛 Research</a>
-            <a href="https://github.com/Ayachi-Yassine">💻 GitHub</a>
-        </div>
-
-        <div class="footer">
-            <p><strong>All security testing is conducted with proper authorization and ethical guidelines.</strong></p>
-            <p>© 2026 Ayachi Yassine | Cybersecurity Portfolio</p>
+<div class="hero">
+    <div class="hero-content">
+        <h1>Ayachi Yassine</h1>
+        <p class="hero-tagline">Security Researcher | Pentesting Enthusiast | CTF Competitor</p>
+        <p style="font-size: var(--font-size-lg); color: var(--text-primary); line-height: var(--line-height-relaxed); margin-bottom: var(--spacing-lg);">
+            Welcome to my cybersecurity portfolio. I specialize in penetration testing, vulnerability research, and ethical hacking. Below you'll find my projects, writeups, and security research.
+        </p>
+        <div class="cta-buttons">
+            <a href="#portfolio" class="btn btn-primary">Explore My Work</a>
+            <a href="https://github.com/Ayachi-Yassine" class="btn btn-secondary">View GitHub</a>
         </div>
     </div>
-</body>
-</html>
+</div>
+
+<!-- Quick Stats -->
+<div class="quick-stats">
+    <div class="stat-card">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Writeups</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Research Papers</div>
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="about-section">
+    <h2>About Me</h2>
+    <p>
+        I'm passionate about cybersecurity and continuously improving my skills in penetration testing and vulnerability research. 
+        My experience ranges from web application testing to network-level security assessments. I'm committed to ethical hacking practices 
+        and contributing to the security community through detailed writeups and open-source tools.
+    </p>
+    
+    <h3 style="margin-top: var(--spacing-xl); color: var(--accent-secondary);">Key Skills</h3>
+    <div class="skills-grid">
+        {% for skill in site.data.site.skills %}
+            <div class="skill-item">{{ skill }}</div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Portfolio Section -->
+<div class="portfolio-section" id="portfolio">
+    <h2 style="text-align: center; margin-bottom: var(--spacing-2xl);">Portfolio</h2>
+    <div class="portfolio-grid">
+        <a href="/projects/" class="portfolio-item">
+            <div class="portfolio-icon">🔍</div>
+            <div class="portfolio-title">Projects</div>
+            <div class="portfolio-description">Pentesting reports, vulnerability assessments, and security projects</div>
+        </a>
+        <a href="/writeups/" class="portfolio-item">
+            <div class="portfolio-icon">📝</div>
+            <div class="portfolio-title">Writeups</div>
+            <div class="portfolio-description">Detailed CTF solutions and challenge walkthroughs</div>
+        </a>
+        <a href="/research/" class="portfolio-item">
+            <div class="portfolio-icon">🔬</div>
+            <div class="portfolio-title">Research</div>
+            <div class="portfolio-description">CVE analysis, exploit development, and security research</div>
+        </a>
+        <a href="/certifications/" class="portfolio-item">
+            <div class="portfolio-icon">📜</div>
+            <div class="portfolio-title">Certifications</div>
+            <div class="portfolio-description">eJPT, TryHackMe, and other security certifications</div>
+        </a>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+    <h2>Ready to Collaborate?</h2>
+    <p style="font-size: var(--font-size-lg); margin: var(--spacing-lg) 0;">
+        I'm always interested in discussing security topics, collaborating on projects, or exploring new opportunities.
+    </p>
+    <a href="mailto:your-email@example.com" class="btn btn-primary">Get In Touch</a>
+</div>

@@ -1,0 +1,390 @@
+/* ============================================
+   RESPONSIVE DESIGN & MEDIA QUERIES
+   ============================================ */
+
+/* Mobile First Approach: Base styles are mobile, then expand */
+
+/* ============================================
+   SMALL DEVICES: 320px - 640px
+   ============================================ */
+
+@media (max-width: 640px) {
+    :root {
+        --font-size-base: 0.95rem;
+        --font-size-lg: 1rem;
+        --font-size-xl: 1.125rem;
+        --font-size-2xl: 1.375rem;
+        --font-size-3xl: 1.625rem;
+        --spacing-lg: 1rem;
+        --spacing-xl: 1.5rem;
+    }
+    
+    h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    h2 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    /* Containers */
+    .container {
+        padding: var(--spacing-md);
+    }
+    
+    /* Navigation */
+    nav {
+        flex-wrap: wrap;
+    }
+    
+    /* Grids */
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Cards */
+    .card {
+        padding: var(--spacing-md);
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-md);
+        min-height: calc(100vh - 100px);
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    /* Buttons */
+    button, .btn {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+        width: 100%;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+    }
+    
+    /* Two column layouts become single column */
+    .two-column {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Code blocks get reduced padding */
+    pre {
+        padding: var(--spacing-md);
+        font-size: 0.85rem;
+    }
+    
+    /* Tables become horizontal scroll */
+    table {
+        font-size: var(--font-size-sm);
+    }
+    
+    th, td {
+        padding: var(--spacing-sm);
+    }
+    
+    /* Reduce margins/padding */
+    .mt, .mb { margin: var(--spacing-md) 0; }
+    .mt-lg, .mb-lg { margin: var(--spacing-lg) 0; }
+    
+    /* Project card meta stacks */
+    .project-card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Badges/tags on mobile */
+    .badge, .tag {
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Breadcrumb wraps on small screens */
+    .breadcrumb {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+    
+    /* Images with captions */
+    figure {
+        margin: var(--spacing-lg) 0;
+    }
+    
+    figcaption {
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+        text-align: center;
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* ============================================
+   MEDIUM DEVICES: 641px - 1024px (Tablets)
+   ============================================ */
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    
+    /* Adjust padding */
+    .card {
+        padding: var(--spacing-lg);
+    }
+    
+    .hero {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    /* Navigation */
+    nav {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+/* ============================================
+   LARGE DEVICES: 1025px and up (Desktop)
+   ============================================ */
+
+@media (min-width: 1025px) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--spacing-lg);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Desktop navigation */
+    nav {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    
+    /* Hero can be larger */
+    .hero {
+        padding: var(--spacing-2xl);
+        min-height: 100vh;
+    }
+    
+    /* Two-column layouts */
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .sidebar {
+        position: sticky;
+        top: var(--spacing-lg);
+    }
+}
+
+/* ============================================
+   VERY LARGE DEVICES: 1440px and up
+   ============================================ */
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .project-grid {
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    }
+    
+    /* Extra breathing room on ultra-wide displays */
+    .hero {
+        padding: var(--spacing-2xl) var(--spacing-2xl);
+    }
+}
+
+/* ============================================
+   LANDSCAPE MODE (Mobile Landscape)
+   ============================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    h1 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    nav {
+        gap: var(--spacing-sm);
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .no-print {
+        display: none;
+    }
+    
+    .card {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+    
+    pre {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+    }
+    
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+    
+    /* Add page breaks for major sections */
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION (Accessibility)
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   DARK MODE DETECTION (Already in dark by default)
+   ============================================ */
+
+@media (prefers-color-scheme: light) {
+    /* If user prefers light mode, invert the theme */
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f5f7fa;
+        --bg-tertiary: #eef2f7;
+        --bg-hover: #dde4f0;
+        
+        --text-primary: #24292f;
+        --text-secondary: #57606a;
+        --text-muted: #6e7681;
+        
+        --border-color: #d0d7de;
+        --border-muted: #e5e7eb;
+    }
+    
+    body {
+        background-image: radial-gradient(circle at 20% 50%, rgba(31, 111, 235, 0.03) 0%, transparent 50%),
+                          radial-gradient(circle at 80% 80%, rgba(31, 111, 235, 0.02) 0%, transparent 50%);
+    }
+    
+    code {
+        background-color: #f5f7fa;
+        color: #1f6feb;
+        border: 1px solid #e5e7eb;
+    }
+    
+    pre {
+        background-color: #f5f7fa;
+        color: #24292f;
+        border: 1px solid #e5e7eb;
+    }
+    
+    .card {
+        background-color: #f5f7fa;
+        border-color: #d0d7de;
+    }
+    
+    .project-card {
+        background-color: #f5f7fa;
+        border-color: #d0d7de;
+    }
+    
+    blockquote {
+        border-left-color: #1f6feb;
+        color: #57606a;
+    }
+    
+    hr {
+        border-top-color: #d0d7de;
+    }
+    
+    img {
+        border-color: #d0d7de;
+    }
+    
+    table {
+        border-color: #d0d7de;
+    }
+    
+    tbody tr:hover {
+        background-color: #eef2f7;
+    }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE (Accessibility)
+   ============================================ */
+
+@media (prefers-contrast: more) {
+    :root {
+        --text-primary: #ffffff;
+        --accent-primary: #00d4ff;
+        --border-color: #ffffff;
+    }
+    
+    body {
+        background-color: #000000;
+    }
+    
+    .card {
+        border-width: 2px;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}

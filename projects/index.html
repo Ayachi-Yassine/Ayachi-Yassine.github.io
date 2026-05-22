@@ -1,0 +1,130 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<style>
+    .filters {
+        display: flex;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: 1px solid var(--border-color);
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        font-size: var(--font-size-sm);
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+        background-color: var(--accent-primary);
+        color: var(--bg-primary);
+        border-color: var(--accent-primary);
+    }
+    
+    .projects-empty {
+        text-align: center;
+        padding: var(--spacing-2xl);
+        color: var(--text-secondary);
+    }
+    
+    .projects-empty-icon {
+        font-size: 3em;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.5;
+    }
+</style>
+
+<h1>Security Projects 🔍</h1>
+<p style="font-size: var(--font-size-lg); color: var(--text-secondary); margin-bottom: var(--spacing-xl);">
+    Comprehensive penetration testing reports and security assessments
+</p>
+
+<!-- Filters -->
+<div class="filters">
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    {% assign categories = site.projects | map: "category" | uniq | sort %}
+    {% for category in categories %}
+        <button class="filter-btn" data-filter="{{ category | downcase }}">{{ category }}</button>
+    {% endfor %}
+</div>
+
+<!-- Projects Grid -->
+{% if site.projects.size > 0 %}
+    <div class="project-grid">
+        {% for project in site.projects %}
+            {% if project.status != "draft" %}
+                <div class="project-card" data-category="{{ project.category | downcase }}">
+                    <div class="project-card-header">
+                        <h3 class="project-card-title">
+                            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+                        </h3>
+                        <div class="project-card-date">{{ project.date | date: "%B %d, %Y" }}</div>
+                    </div>
+                    
+                    <div class="project-card-description">
+                        {{ project.description }}
+                    </div>
+                    
+                    <div class="project-card-meta">
+                        <div class="project-card-category">
+                            <span class="badge badge-primary">{{ project.category }}</span>
+                        </div>
+                        {% if project.difficulty %}
+                            <span class="badge difficulty-{{ project.difficulty | downcase }}">
+                                {{ project.difficulty }}
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="projects-empty">
+        <div class="projects-empty-icon">📋</div>
+        <h3>No Projects Yet</h3>
+        <p>Start by adding your first security project in the <code>_projects/</code> folder.</p>
+        <p style="font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
+            <a href="{{ '/LOCAL_EDITING_GUIDE.md' | relative_url }}">📚 See the editing guide for details</a>
+        </p>
+    </div>
+{% endif %}
+
+<!-- Draft Indicator -->
+{% assign drafts = site.projects | where: "status", "draft" %}
+{% if drafts.size > 0 %}
+    <div style="margin-top: var(--spacing-2xl); padding: var(--spacing-lg); background-color: rgba(210, 153, 34, 0.1); border: 1px solid rgba(210, 153, 34, 0.3); border-radius: var(--radius-md); text-align: center;">
+        <p style="color: var(--accent-warning); margin: 0;">
+            ℹ️ You have {{ drafts.size }} draft project(s). Remove "draft" from the filename to publish.
+        </p>
+    </div>
+{% endif %}
+
+<script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active state
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter cards
+            const filter = this.dataset.filter;
+            document.querySelectorAll('.project-card').forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>

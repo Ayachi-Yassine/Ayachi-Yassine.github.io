@@ -12,7 +12,19 @@ author:
   name: "Ayachi Yassine"
   email: "your-email@example.com"
 
-# Navigation
+# Collections for organized content
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+  writeups:
+    output: true
+    permalink: /writeups/:title/
+  research:
+    output: true
+    permalink: /research/:title/
+
+# Plugins
 plugins:
   - jekyll-sitemap
   - jekyll-feed
@@ -20,3 +32,21 @@ plugins:
 # Build settings
 markdown: kramdown
 highlighter: rouge
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: writeups
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: post

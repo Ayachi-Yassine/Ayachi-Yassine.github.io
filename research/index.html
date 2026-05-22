@@ -1,0 +1,59 @@
+---
+layout: default
+title: Research
+permalink: /research/
+---
+
+<h1>Security Research 🔬</h1>
+<p style="font-size: var(--font-size-lg); color: var(--text-secondary); margin-bottom: var(--spacing-xl);">
+    Deep-dive analysis, CVE research, and security vulnerability investigations
+</p>
+
+<!-- Research List -->
+{% if site.research.size > 0 %}
+    <div style="display: grid; gap: var(--spacing-lg); margin: var(--spacing-lg) 0;">
+        {% for research in site.research %}
+            {% if research.status != "draft" %}
+                <a href="{{ research.url | relative_url }}" style="text-decoration: none; color: inherit;">
+                    <div class="card" style="transition: all var(--transition-base); cursor: pointer;">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ research.title }}</h3>
+                            <span style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+                                {{ research.date | date: "%B %d, %Y" }}
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            {{ research.description }}
+                        </div>
+                        <div class="card-footer">
+                            {% if research.tags %}
+                                {% for tag in research.tags %}
+                                    <span class="tag">{{ tag }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% else %}
+    <div style="text-align: center; padding: var(--spacing-2xl); color: var(--text-secondary);">
+        <div style="font-size: 3em; margin-bottom: var(--spacing-lg); opacity: 0.5;">🔍</div>
+        <h3>No Research Papers Yet</h3>
+        <p>Start adding research papers to the <code>_research/</code> folder.</p>
+        <p style="font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
+            <a href="{{ '/LOCAL_EDITING_GUIDE.md' | relative_url }}">📚 See the editing guide for details</a>
+        </p>
+    </div>
+{% endif %}
+
+<!-- Draft Indicator -->
+{% assign drafts = site.research | where: "status", "draft" %}
+{% if drafts.size > 0 %}
+    <div style="margin-top: var(--spacing-2xl); padding: var(--spacing-lg); background-color: rgba(210, 153, 34, 0.1); border: 1px solid rgba(210, 153, 34, 0.3); border-radius: var(--radius-md); text-align: center;">
+        <p style="color: var(--accent-warning); margin: 0;">
+            ℹ️ You have {{ drafts.size }} draft research paper(s). Remove "draft" from the filename to publish.
+        </p>
+    </div>
+{% endif %}

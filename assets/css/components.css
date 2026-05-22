@@ -1,0 +1,416 @@
+/* ============================================
+   COMPONENTS: Cards, Badges, Tags, etc.
+   ============================================ */
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+}
+
+.card-title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--accent-primary);
+}
+
+.card-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin: var(--spacing-sm) 0 0 0;
+}
+
+.card-body {
+    margin-bottom: var(--spacing-md);
+}
+
+.card-footer {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   PROJECT CARDS (Collection Lists)
+   ============================================ */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.project-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+}
+
+.project-card a {
+    text-decoration: none;
+}
+
+.project-card-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.project-card-title {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: var(--font-size-lg);
+    color: var(--accent-secondary);
+    word-break: break-word;
+}
+
+.project-card-title a {
+    color: var(--accent-secondary);
+    transition: color var(--transition-fast);
+}
+
+.project-card-title a:hover {
+    color: var(--accent-primary);
+}
+
+.project-card-date {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.project-card-description {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.project-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.project-card-category {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.project-card-tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   BADGES & TAGS
+   ============================================ */
+
+.badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+}
+
+.badge-primary {
+    background-color: rgba(88, 166, 255, 0.1);
+    color: var(--accent-primary);
+    border: 1px solid rgba(88, 166, 255, 0.3);
+}
+
+.badge-primary:hover {
+    background-color: rgba(88, 166, 255, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.badge-secondary {
+    background-color: rgba(121, 192, 255, 0.1);
+    color: var(--accent-secondary);
+    border: 1px solid rgba(121, 192, 255, 0.3);
+}
+
+.badge-success {
+    background-color: rgba(63, 185, 80, 0.1);
+    color: var(--accent-success);
+    border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+.badge-warning {
+    background-color: rgba(210, 153, 34, 0.1);
+    color: var(--accent-warning);
+    border: 1px solid rgba(210, 153, 34, 0.3);
+}
+
+.badge-danger {
+    background-color: rgba(248, 81, 73, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(248, 81, 73, 0.3);
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.85em;
+    background-color: var(--bg-tertiary);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.tag:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--accent-primary);
+}
+
+/* ============================================
+   DIFFICULTY BADGES
+   ============================================ */
+
+.difficulty-easy {
+    background-color: rgba(63, 185, 80, 0.1);
+    color: var(--accent-success);
+    border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+.difficulty-medium {
+    background-color: rgba(210, 153, 34, 0.1);
+    color: var(--accent-warning);
+    border: 1px solid rgba(210, 153, 34, 0.3);
+}
+
+.difficulty-hard {
+    background-color: rgba(248, 81, 73, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(248, 81, 73, 0.3);
+}
+
+/* ============================================
+   ALERTS & CALLOUTS
+   ============================================ */
+
+.alert {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-left: 4px solid;
+    border-radius: var(--radius-md);
+    margin: var(--spacing-lg) 0;
+    background-color: var(--bg-tertiary);
+}
+
+.alert-info {
+    border-left-color: var(--accent-primary);
+    color: var(--accent-secondary);
+}
+
+.alert-success {
+    border-left-color: var(--accent-success);
+    color: var(--accent-success);
+}
+
+.alert-warning {
+    border-left-color: var(--accent-warning);
+    color: var(--accent-warning);
+}
+
+.alert-danger {
+    border-left-color: var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+.alert-title {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.alert p {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   BREADCRUMB
+   ============================================ */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.breadcrumb a {
+    color: var(--accent-primary);
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-secondary);
+}
+
+.breadcrumb-separator {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-xl) 0;
+    flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination .page-number {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.pagination a:hover,
+.pagination .page-number:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+}
+
+.pagination .active {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+    border-color: var(--accent-primary);
+}
+
+/* ============================================
+   CODE BLOCK HIGHLIGHTING
+   ============================================ */
+
+.highlight {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    overflow-x: auto;
+    margin: var(--spacing-lg) 0;
+}
+
+.highlight pre {
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* ============================================
+   DIVIDER/SEPARATOR
+   ============================================ */
+
+.divider {
+    margin: var(--spacing-xl) 0;
+    border: none;
+    border-top: 2px solid var(--border-color);
+}
+
+.divider-accent {
+    border-top-color: var(--accent-primary);
+}
+
+/* ============================================
+   TOOLTIP (Basic)
+   ============================================ */
+
+.tooltip {
+    position: relative;
+    border-bottom: 1px dotted var(--accent-primary);
+    cursor: help;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    font-size: var(--font-size-sm);
+    z-index: 100;
+    margin-bottom: var(--spacing-sm);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   SCROLLBAR (Webkit Browsers)
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}

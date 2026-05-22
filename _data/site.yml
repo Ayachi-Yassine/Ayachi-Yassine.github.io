@@ -1,0 +1,50 @@
+# Site metadata and navigation
+site:
+  title: "Ayachi Yassine"
+  tagline: "Cybersecurity Pentesting & Research"
+  role: "Security Researcher | Pentesting Enthusiast"
+  
+# Social links
+social:
+  - name: GitHub
+    url: "https://github.com/Ayachi-Yassine"
+    icon: github
+  - name: LinkedIn
+    url: "#"
+    icon: linkedin
+  - name: Twitter
+    url: "#"
+    icon: twitter
+  - name: Email
+    url: "mailto:your-email@example.com"
+    icon: email
+
+# Navigation menu
+navigation:
+  - title: Home
+    url: /
+  - title: Projects
+    url: /projects/
+  - title: Writeups
+    url: /writeups/
+  - title: Research
+    url: /research/
+  - title: Certifications
+    url: /certifications/
+
+# Skills for landing page
+skills:
+  - Web Application Testing
+  - Network Penetration Testing
+  - Vulnerability Assessment
+  - Exploit Development
+  - CTF Challenges
+  - Security Research
+  - Python Scripting
+  - Reverse Engineering
+
+# Featured projects (for homepage highlight)
+featured_projects:
+  - title: "Project 1"
+    description: "Coming soon..."
+    category: "Web"
