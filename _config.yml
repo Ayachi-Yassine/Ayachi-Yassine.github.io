@@ -1,0 +1,22 @@
+# Jekyll Configuration
+title: "Ayachi Yassine – Cybersecurity Pentesting Portfolio"
+description: "Pentesting projects, reports, and security research"
+theme: jekyll-theme-minimal
+
+# Site settings
+url: "https://Ayachi-Yassine.github.io"
+baseurl: ""
+
+# Author
+author:
+  name: "Ayachi Yassine"
+  email: "your-email@example.com"
+
+# Navigation
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
